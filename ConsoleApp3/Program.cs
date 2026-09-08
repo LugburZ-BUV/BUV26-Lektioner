@@ -191,4 +191,8 @@
             }
         }
     }
+    class User
+    {
+            string Name = "Nils";
+    }
 }
