@@ -195,4 +195,8 @@
     {
             string Name = "Nils";
     }
+    class User2
+    {
+            string Name2 = "Nils 2";
+    }   
 }
