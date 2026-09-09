@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp3
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace ConsoleApp3
 {
     internal class Program
     {
@@ -189,6 +191,93 @@
             {
                 Console.WriteLine("Kunde inte konvertera strängen till ett heltal.");
             }
+                    //PrintInfo();
+                    
+                    // om inte Static, så måste vi göra ett object
+                    Program obj = new Program();
+                    obj.PrintInfo();
+            
+                    Program obj2 = new Program();
+                    obj2.PrintInfo();
+                    
+                    // Måste ha samma typ i target som i metoden
+                    obj.JämnaSiffror(9);
+            
+                    string result1 = EvenNum();
+                    Console.WriteLine(result1);
+
+                    int summa = Sum(10, 25, "");
+                    Console.WriteLine("Result is: {0}",summa);
+
+                   string Namnet = PrintFullName("Nils", "Olmås");
+                   string Namnet2 = PrintFullName("Gustav", "Ljung");
+                   Console.WriteLine(Namnet);
+                   Console.WriteLine(Namnet2);
+
+                   int[] MyNums = {10,11,12};
+
+                   ArrayMethod(MyNums);
+
+                   
+
+        }
+        // Void returns nothing
+        public void PrintInfo()
+        {
+            Console.WriteLine("Name : Nils");
+        }
+
+        // Public som default
+        // Datatyp target för att 
+        void JämnaSiffror(int target)
+        {
+            Console.WriteLine("Print Even Number From 0 - {0}", target);
+            for (int i = 0; i <= target; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    Console.WriteLine(i + " ");
+                }
+            }
+        }
+
+        static int Sum(int value1, int value2, string ilNamo)
+        {
+            return value1 + value2;
+        }
+            
+
+        public static string EvenNum()
+        {
+            int start = 0;
+            string answer = "";
+            while (start <= 20)
+            {
+                answer = answer + start + " ";
+                start = start + 2;
+            }
+            return answer;
+
+        }
+
+        static string PrintFullName(string firstName, string lastName)
+        {
+            string fullName = firstName + " " + lastName;
+            return fullName;
+        }
+        //      return type (void)
+        // public void PrintInfo()
+        //{
+        //    Console.WriteLine("Name : Nils");
+        //}
+
+        static void ArrayMethod(int[] Numbers)
+        {
+            Console.WriteLine("{0} Elements in the Array ",Numbers.Length);
+            foreach (int number11 in Numbers)
+            {
+                Console.WriteLine(number11);
+            }
         }
     }
     class User
@@ -199,4 +288,11 @@
     {
             string Name2 = "Nils 2";
     }   
+    
+    
+    
+    
+
+    
 }
+
