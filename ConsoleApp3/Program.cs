@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using ConsoleApp3.Models;
 using ConsoleApp3.Utility;
@@ -328,6 +329,31 @@ namespace ConsoleApp3
 
             Customer KalleA = new Customer();
             KalleA.PrintData();
+
+            ///////////////////////////////////////////////////////
+            // new string ("x", i) test
+            Console.WriteLine("" +
+                "\n\"new string\" test!");
+            for (int i = 1; i <= 10; i++)
+            {
+                // skriver ut symbol * i gånger
+                // dvs för första raden skriver den ut 1, och för andra 2 osv
+                Console.WriteLine(new string('*', i));
+            }
+            Console.WriteLine();
+            // new string + new string test
+            int rows = 10;
+            for (int i = 1; i <= rows; i++)
+            {
+                // Lägger till rows - 1 mellanslag före varje symbol
+                string spacers = new string(' ', rows - i);
+                // Lägger till * i*2 -1 gånger för varje rad,
+                // så att granen får udda antal symboler varje rad
+                string body = new string('*', (i * 2) - 1);
+                //Console.Write(new string(' ',(rows - i)));
+                //Console.Write(new string('*', ((i * 2) - 1)));
+                Console.WriteLine(spacers + body);
+            }
         }
         //class User
         //{
