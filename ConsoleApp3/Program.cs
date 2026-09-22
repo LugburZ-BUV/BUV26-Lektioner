@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Text;
 using ConsoleApp3.Models;
 using ConsoleApp3.Utility;
 
@@ -322,25 +323,36 @@ namespace ConsoleApp3
             Kalle.age = 70;
             Kalle.PrintInfo();
 
-            Customer NilsO = new Customer(01,"Nils","Olmås",true);
+            Customer NilsO = new Customer(01, "Nils", "Olmås", true);
             NilsO.PrintData();
 
             Customer KalleA = new Customer();
             KalleA.PrintData();
         }
-    //class User
-    //{
-    //    string Name = "Nils";
-    //}
-    //class User2
-    //{
-    //    string Name2 = "Nils 2";
-    //}
+        //class User
+        //{
+        //    string Name = "Nils";
+        //}
+        //class User2
+        //{
+        //    string Name2 = "Nils 2";
+        //}
 
-        
+        // Menu print
+        private static void PrintMenu()
+        {
+            string menu = new StringBuilder()
+                .AppendLine("---Klassens verktygsläda---")
+                .AppendLine("1. Kolla åldern")
+                .AppendLine("2. Räkna med siffror")
+                .AppendLine("3. Skapa en bil")
+                .AppendLine("0. Avsluta")
+                .AppendLine(new string('-', 40))
+                .ToString();
 
-
-
+            Console.WriteLine(menu);
+        }
     }
+
 }
 
