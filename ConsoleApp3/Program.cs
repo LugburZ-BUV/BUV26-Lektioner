@@ -338,7 +338,7 @@ namespace ConsoleApp3
         //    string Name2 = "Nils 2";
         //}
 
-        // Menu print
+        // Menu print method
         private static void PrintMenu()
         {
             string menu = new StringBuilder()
@@ -350,6 +350,20 @@ namespace ConsoleApp3
                 .AppendLine(new string('-', 40))
                 .ToString();
 
+            Console.WriteLine(menu);
+        }
+
+        // Menu print method 2
+        private static void PrintMenu2()
+        {
+            string menu = """
+                ---Klassens verktygsläda---
+                1. Kolla åldern
+                2. Räkna med siffror
+                3. Skapa en bil
+                0. Avsluta
+                ----------------------------------------
+                """;
             Console.WriteLine(menu);
         }
     }
