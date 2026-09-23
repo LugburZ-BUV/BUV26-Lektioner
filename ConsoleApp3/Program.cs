@@ -354,6 +354,59 @@ namespace ConsoleApp3
                 //Console.Write(new string('*', ((i * 2) - 1)));
                 Console.WriteLine(spacers + body);
             }
+
+            // Spara till fil fileName
+            string fileName = "notepad.txt";
+
+            Console.WriteLine("-----Spara till fil-----");
+            Console.Write("Skriv en rad text: ");
+            string text = Console.ReadLine();
+
+            File.WriteAllText(fileName, text);
+            Console.WriteLine($"Sparat till: {fileName}");
+
+            // Lägga till rader i filen fileName
+            Console.WriteLine("-----Lägg till rader (skriv stopp för att avsluta)-----");
+
+            string rad;
+            while (true)
+            {
+                Console.Write("Ny rad: ");
+                rad = Console.ReadLine();
+
+                if (rad.ToLower() == "stopp")
+                {
+                    break;
+                }
+                File.AppendAllText(fileName, Environment.NewLine + rad);
+            }
+
+            // Läs filen fileName
+            Console.WriteLine("-----Läs från fil-----");
+
+            if (File.Exists(fileName))
+            {
+                string contents = File.ReadAllText(fileName);
+                Console.WriteLine($"Innehåll: " +
+                    $"\n{contents}");
+            }
+            else
+            {
+                Console.WriteLine("Filen finns inte...");
+            }
+
+            // Läs rad för rad
+            Console.WriteLine("-----Läs rad för rad-----");
+
+            // Returns string[] array
+            string[] rader = File.ReadAllLines(fileName);
+
+            int radnum = 1;
+            foreach (string row in rader)
+            {
+                Console.WriteLine($"{radnum}: {row}");
+                radnum++;
+            }
         }
         //class User
         //{
