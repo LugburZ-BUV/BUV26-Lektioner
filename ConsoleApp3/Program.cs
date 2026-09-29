@@ -304,109 +304,148 @@ namespace ConsoleApp3
 
 
 
-            Console.WriteLine("Hej! Lycka Till!");
+            //Console.WriteLine("Hej! Lycka Till!");
 
-            // Skapa objekt (Instance class)
-            user Nils = new user();
-            user äpple = new user();
-            user Kalle = new user();
+            //// Skapa objekt (Instance class)
+            //user Nils = new user();
+            //user äpple = new user();
+            //user Kalle = new user();
 
-            // Bestäm objektet i klassen
-            Nils.firstName = "Nils";
-            Nils.lastName = "Olmås";
-            Nils.age = 30;
+            //// Bestäm objektet i klassen
+            //Nils.firstName = "Nils";
+            //Nils.lastName = "Olmås";
+            //Nils.age = 30;
 
-            // Anropa metoden i klassen
-            Nils.PrintInfo();
+            //// Anropa metoden i klassen
+            //Nils.PrintInfo();
 
-            Kalle.firstName = "Kalle";
-            Kalle.lastName = "Anka";
-            Kalle.age = 70;
-            Kalle.PrintInfo();
+            //Kalle.firstName = "Kalle";
+            //Kalle.lastName = "Anka";
+            //Kalle.age = 70;
+            //Kalle.PrintInfo();
 
-            Customer NilsO = new Customer(01, "Nils", "Olmås", true);
-            NilsO.PrintData();
+            //Customer NilsO = new Customer(01, "Nils", "Olmås", true);
+            //NilsO.PrintData();
 
-            Customer KalleA = new Customer();
-            KalleA.PrintData();
+            //Customer KalleA = new Customer();
+            //KalleA.PrintData();
 
-            ///////////////////////////////////////////////////////
-            // new string ("x", i) test
-            Console.WriteLine("" +
-                "\n\"new string\" test!");
-            for (int i = 1; i <= 10; i++)
+            /////////////////////////////////////////////////////////
+            //// new string ("x", i) test
+            //Console.WriteLine("" +
+            //    "\n\"new string\" test!");
+            //for (int i = 1; i <= 10; i++)
+            //{
+            //    // skriver ut symbol * i gånger
+            //    // dvs för första raden skriver den ut 1, och för andra 2 osv
+            //    Console.WriteLine(new string('*', i));
+            //}
+            //Console.WriteLine();
+            //// new string + new string test
+            //int rows = 10;
+            //for (int i = 1; i <= rows; i++)
+            //{
+            //    // Lägger till rows - 1 mellanslag före varje symbol
+            //    string spacers = new string(' ', rows - i);
+            //    // Lägger till * i*2 -1 gånger för varje rad,
+            //    // så att granen får udda antal symboler varje rad
+            //    string body = new string('*', (i * 2) - 1);
+            //    //Console.Write(new string(' ',(rows - i)));
+            //    //Console.Write(new string('*', ((i * 2) - 1)));
+            //    Console.WriteLine(spacers + body);
+            //}
+
+            //// Spara till fil fileName
+            //string fileName = "notepad.txt";
+
+            //Console.WriteLine("-----Spara till fil-----");
+            //Console.Write("Skriv en rad text: ");
+            //string text = Console.ReadLine();
+
+            //File.WriteAllText(fileName, text);
+            //Console.WriteLine($"Sparat till: {fileName}");
+
+            //// Lägga till rader i filen fileName
+            //Console.WriteLine("-----Lägg till rader (skriv stopp för att avsluta)-----");
+
+            //string rad;
+            //while (true)
+            //{
+            //    Console.Write("Ny rad: ");
+            //    rad = Console.ReadLine();
+
+            //    if (rad.ToLower() == "stopp")
+            //    {
+            //        break;
+            //    }
+            //    File.AppendAllText(fileName, Environment.NewLine + rad);
+            //}
+
+            //// Läs filen fileName
+            //Console.WriteLine("-----Läs från fil-----");
+
+            //if (File.Exists(fileName))
+            //{
+            //    string contents = File.ReadAllText(fileName);
+            //    Console.WriteLine($"Innehåll: " +
+            //        $"\n{contents}");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Filen finns inte...");
+            //}
+
+            //// Läs rad för rad
+            //Console.WriteLine("-----Läs rad för rad-----");
+
+            //// Returns string[] array
+            //string[] rader = File.ReadAllLines(fileName);
+
+            //int radnum = 1;
+            //foreach (string row in rader)
+            //{
+            //    Console.WriteLine($"{radnum}: {row}");
+            //    radnum++;
+            //}
+
+            Library library = new Library();
+            library.AddTestData();
+
+            bool run = true;
+            while (run)
             {
-                // skriver ut symbol * i gånger
-                // dvs för första raden skriver den ut 1, och för andra 2 osv
-                Console.WriteLine(new string('*', i));
-            }
-            Console.WriteLine();
-            // new string + new string test
-            int rows = 10;
-            for (int i = 1; i <= rows; i++)
-            {
-                // Lägger till rows - 1 mellanslag före varje symbol
-                string spacers = new string(' ', rows - i);
-                // Lägger till * i*2 -1 gånger för varje rad,
-                // så att granen får udda antal symboler varje rad
-                string body = new string('*', (i * 2) - 1);
-                //Console.Write(new string(' ',(rows - i)));
-                //Console.Write(new string('*', ((i * 2) - 1)));
-                Console.WriteLine(spacers + body);
-            }
+                string menu = """
 
-            // Spara till fil fileName
-            string fileName = "notepad.txt";
+                    ========= Library System =========
+                    1. Visa alla böcker
+                    2. Visa alla tillgängliga böcker
+                    0. Avsluta programmet
+                    """;
+                Console.WriteLine(menu +"\n");
 
-            Console.WriteLine("-----Spara till fil-----");
-            Console.Write("Skriv en rad text: ");
-            string text = Console.ReadLine();
+                Console.Write("Val: ");
+                string val = Console.ReadLine();
+                Console.WriteLine();
 
-            File.WriteAllText(fileName, text);
-            Console.WriteLine($"Sparat till: {fileName}");
-
-            // Lägga till rader i filen fileName
-            Console.WriteLine("-----Lägg till rader (skriv stopp för att avsluta)-----");
-
-            string rad;
-            while (true)
-            {
-                Console.Write("Ny rad: ");
-                rad = Console.ReadLine();
-
-                if (rad.ToLower() == "stopp")
+                switch (val)
                 {
-                    break;
+                    case "1":
+                        library.ShowAllBooks();
+                        break;
+                    case "2":
+                        library.ShowAvailableBooks();
+                        break;
+                    case "0":
+                        run = false;
+                        break;
+                    default:
+                        Console.WriteLine("Ogiltlig inmatning...");
+                        break;
                 }
-                File.AppendAllText(fileName, Environment.NewLine + rad);
             }
 
-            // Läs filen fileName
-            Console.WriteLine("-----Läs från fil-----");
 
-            if (File.Exists(fileName))
-            {
-                string contents = File.ReadAllText(fileName);
-                Console.WriteLine($"Innehåll: " +
-                    $"\n{contents}");
-            }
-            else
-            {
-                Console.WriteLine("Filen finns inte...");
-            }
-
-            // Läs rad för rad
-            Console.WriteLine("-----Läs rad för rad-----");
-
-            // Returns string[] array
-            string[] rader = File.ReadAllLines(fileName);
-
-            int radnum = 1;
-            foreach (string row in rader)
-            {
-                Console.WriteLine($"{radnum}: {row}");
-                radnum++;
-            }
+            Console.ReadKey();
         }
         //class User
         //{
@@ -445,6 +484,21 @@ namespace ConsoleApp3
                 """;
             Console.WriteLine(menu);
         }
+
+        // if-sats för att kolla om en fil finns innan vi skriver till den
+
+        //Console.WriteLine("------- save to file -------");
+        //    Console.Write("Write a text: ");
+        //    string input = Console.ReadLine();
+        //    if (!File.Exists(filename))
+        //    {
+        //        File.WriteAllText(filename, input);
+        //        Console.WriteLine("Saved to : " + filename);
+        //    }
+        //    else
+        //    {
+        //        File.AppendAllText(filename, Environment.NewLine + input);
+        //    }
     }
 
 }

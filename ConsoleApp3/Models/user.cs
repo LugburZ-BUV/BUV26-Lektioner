@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleApp3.Models
 {
-    public class user
+    public class User
     {
         // Fields
         //public string _firstName;
